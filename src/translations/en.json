@@ -1,13 +1,15 @@
 {
     "homeheader": {
-        "speciality": "Medical specialty",
-        "searchdoctor": "Find a doctor by specialty",
+        "speciality": "Medical Specialty",
+        "searchdoctor": "Outstanding specialty",
         "health-facility": "Facility",
-        "select-room": "Choose clinic",
+        "select-room": "Outstanding clinic",
         "doctor1": "Doctor",
-        "select-doctor": "Choose a good doctor",
+        "select-doctor": "Outstanding doctor",
         "medical-package": "Medical package",
         "generalHC": "General health check",
+        "handbook": "Handbook",
+        "handbook-des": "Health handbook",
         "support": "Support",
         "welcome": "What's up, "
     },

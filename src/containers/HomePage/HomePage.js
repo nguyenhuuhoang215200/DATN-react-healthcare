@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useRef } from 'react';
 import { connect } from 'react-redux';
 import HomeHeader from './HomeHeader';
 import Specialty from '../HomePage/Section/Specialty';
@@ -13,10 +13,15 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
-class HomePage extends Component {
+class HomePage extends React.Component {
+    // constructor(props) {
+    //     super(props);
+    //     this.myRef = React.createRef();
+    //     this.handleButtonClick = this.handleButtonClick.bind(this);
+    // }
 
-    // handleAfterChange = (event, slick, currentSlide) => {
-
+    // handleButtonClick() {
+    //     this.myRef.current.scrollIntoView({ behavior: "smooth" });
     // }
 
     render() {

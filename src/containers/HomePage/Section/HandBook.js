@@ -1,96 +1,90 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl'
-
+import axios from 'axios';
 import Slider from 'react-slick';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
+import './HandBook.scss'
+import { Link } from 'react-router-dom';
 
-function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-        <div
-            className={className}
-            style={{ ...style, display: "block", background: "red" }}
-            onClick={onClick}
-        />
-    );
-}
+const HandBook = ({ settings }) => {
 
-function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-        <div
-            className={className}
-            style={{ ...style, display: "block", background: "green" }}
-            onClick={onClick}
-        />
-    );
-}
+    const [allHandbooks, setAllHandbooks] = useState()
 
-class HandBook extends Component {
-    render() {
+    function SampleNextArrow(props) {
+        const { className, style, onClick } = props;
         return (
-            <div className='section-share section-handbook'>
-                <div className='section-container'>
-                    <div className='section-header'>
-                        <span className='title-section'>Cẩm nang</span>
-                        <button className='btn-section'>XEM THÊM</button>
-                    </div>
-                    <div className='section-body'>
-                        <Slider {...this.props.settings}>
-                            <div className='section-customize'>
-                                <div className='bg-image section-handbook' />
-                                <div>Phòng chóng bệnh tiểu đường</div>
-                            </div>
-                            <div className='section-customize'>
-                                <div className='bg-image section-handbook' />
-                                <div>Sức khỏa tim mạch</div>
-                            </div>
-                            <div className='section-customize'>
-                                <div className='bg-image section-handbook' />
-                                <div>Khám tổng quát ở đâu?</div>
-                            </div>
-                            <div className='section-customize'>
-                                <div className='bg-image section-handbook' />
-                                <div>Phát đồ điều trị đau cột sống</div>
-                            </div>
-                            <div className='section-customize'>
-                                <div className='bg-image section-handbook' />
-                                <div>Cơ xương khớp 5</div>
-                            </div>
-                            <div className='section-customize'>
-                                <div className='bg-image section-handbook' />
-                                <div>Cơ xương khớp 6</div>
-                            </div>
-                            <div className='section-customize'>
-                                <div className='bg-image section-handbook' />
-                                <div>Cơ xương khớp 7</div>
-                            </div>
-                            <div className='section-customize'>
-                                <div className='bg-image section-handbook' />
-                                <div>Cơ xương khớp 8</div>
-                            </div>
-
-                        </Slider>
-                    </div>
-
-                </div>
-            </div>
+            <div
+                className={className}
+                style={{ ...style, display: "block", background: "red" }}
+                onClick={onClick}
+            />
         );
     }
 
+    function SamplePrevArrow(props) {
+        const { className, style, onClick } = props;
+        return (
+            <div
+                className={className}
+                style={{ ...style, display: "block", background: "green" }}
+                onClick={onClick}
+            />
+        );
+    }
+
+    const getAllHandBook = () => {
+        axios.get('http://localhost:8080/api/get-all-handbook')
+            .then(function (response) {
+                const data = response.data
+                if(data.errCode === 0) {
+                    setAllHandbooks(data.data)
+                } else {
+                    console.log(response)
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    useEffect(() => {
+        getAllHandBook()
+    }, [])
+
+    console.log('check handbook: ', allHandbooks)
+
+    return (
+        <div className='section-share section-handbook'>
+            <div className='section-container'>
+                <div className='section-header'>
+                    <span className='title-section'>Cẩm nang</span>
+                    <button className='btn-section'>XEM THÊM</button>
+                </div>
+                <div className='section-body'>
+                    <Slider {...settings}>
+                        {allHandbooks && allHandbooks.length > 0
+                            && allHandbooks.map((handbook, index) => (
+                                <Link to={`/detail-handbook/${handbook.id}`}
+                                    className='link-handbook section-customize' key={index}>
+                                    <div
+                                        style={{ backgroundImage: `url(${handbook.image})` }}
+                                        className='bg-image section-medical-facility' />
+                                    <div className='handbook-name clinic-name'>{handbook.name}</div>
+                                </Link>
+                            ))
+                        }
+                    </Slider>
+                </div>
+
+            </div>
+        </div>
+    );
+
 }
 
-const mapStateToProps = state => {
-    return {
-        isLoggedIn: state.user.isLoggedIn,
-        language: state.app.language,
-    };
-};
+export default HandBook
 
-const mapDispatchToProps = dispatch => {
-    return {
 
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HandBook);

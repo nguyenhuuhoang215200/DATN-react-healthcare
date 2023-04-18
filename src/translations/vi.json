@@ -1,13 +1,15 @@
 {
     "homeheader": {
-        "speciality": "Chuyên khoa",
-        "searchdoctor": "Tìm bác sĩ theo chuyên khoa",
-        "health-facility": "Cơ sở y tế",
-        "select-room": "Chọn phòng khám",
-        "doctor1": "Bác sĩ",
-        "select-doctor": "Chọn bác sĩ giỏi",
-        "medical-package": "Gói khám bệnh",
+        "speciality": "Chuyên Khoa",
+        "searchdoctor": "Chuyên khoa nổi bật",
+        "health-facility": "Cơ Sở Y Tế",
+        "select-room": "Phòng khám nổi bật",
+        "doctor1": "Bác Sĩ",
+        "select-doctor": "Bác sĩ giỏi",
+        "medical-package": "Gói Khám Bệnh",
         "generalHC": "Khám sức khỏe tổng quát",
+        "handbook": "Cẩm Nang",
+        "handbook-des": "Cẩm nang sức khỏe",
         "support": "Hỗ trợ",
         "welcome": "Xin chào "
     },

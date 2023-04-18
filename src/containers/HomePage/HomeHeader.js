@@ -37,6 +37,16 @@ class HomeHeader extends Component {
     render() {
         let language = this.props.language
 
+        // let { handleButtonClick } = this.props
+
+        // console.log('check props ref: ', handleButtonClick)
+
+        // handleButtonClick = () => {
+        //     if (this.props.onClick) {
+        //         this.props.onClick();
+        //     }
+        // };
+
         return (
             <React.Fragment>
                 <div className='home-header-container'>
@@ -75,6 +85,14 @@ class HomeHeader extends Component {
                             <div className='child-content'>
                                 <div>
                                     <b>
+                                        <FormattedMessage id='homeheader.handbook' />
+                                    </b>
+                                </div>
+                                <div className='subs-title'><FormattedMessage id='homeheader.handbook-des' /></div>
+                            </div>
+                            <div className='child-content'>
+                                <div>
+                                    <b>
                                         <FormattedMessage id='homeheader.medical-package' />
                                     </b>
                                 </div>
@@ -98,7 +116,7 @@ class HomeHeader extends Component {
                         <div className='content-up'>
                             <div className='title-1'><FormattedMessage id='banner.title1' /></div>
                             <div className='title-2'><FormattedMessage id='banner.title2' /></div>
-                            <SearchDoctorByName/>
+                            <SearchDoctorByName />
                         </div>
                         <div className='content-down'>
                             <div className='options'>
