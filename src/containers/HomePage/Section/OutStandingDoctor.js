@@ -39,7 +39,7 @@ class OutStandingDoctor extends Component {
         let { language } = this.props
         return (
             <div>
-                <div className='section-share section-outstanding-doctor'>
+                <div id='section-doctor' className='section-share section-outstanding-doctor'>
                     <div className='section-container'>
                         <div className='section-header'>
                             <span className='title-section'><FormattedMessage id='homepage.outstanding-doctor' /></span>

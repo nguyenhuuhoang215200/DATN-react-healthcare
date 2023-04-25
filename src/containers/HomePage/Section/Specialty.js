@@ -59,7 +59,7 @@ class Specialty extends Component {
     render() {
         let { dataSpecialty } = this.state
         return (
-            <div className='section-share section-specialty'>
+            <div id='section-specialty' className='section-share section-specialty'>
                 <div className='section-container'>
                     <div className='section-header'>
                         <span className='title-section'><FormattedMessage id='homepage.specialty-popular' /></span>

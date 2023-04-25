@@ -44,6 +44,15 @@
 
             .child-content {
                 width: 100%;
+                color: black;
+                list-style: none;
+                text-decoration: none !important;
+
+                &:hover {
+                    text-decoration: none !important;
+                    cursor: pointer;
+                    list-style: none;
+                }
 
                 .subs-title {
                     font-weight: 400;
@@ -83,11 +92,13 @@
 
                     &.active {
                         opacity: 1;
+
                         span {
                             color: red;
-                            
+
                         }
                     }
+
                     &:hover {
                         opacity: 1;
                         color: red;
@@ -101,9 +112,10 @@
 
                     &.active {
                         opacity: 1;
+
                         span {
                             color: rgb(119, 171, 233);
-                            
+
                         }
                     }
 

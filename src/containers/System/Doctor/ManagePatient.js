@@ -88,7 +88,8 @@ class ManagePatient extends Component {
             patientId: dataModal.patientId,
             timeType: dataModal.timeType,
             language: this.props.language,
-            patientName: dataModal.patientName
+            patientName: dataModal.patientName,
+            medicine: dataChild.medicine
         })
         if (res && res.errCode === 0) {
             this.setState({

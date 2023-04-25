@@ -16,7 +16,8 @@ class RemedyModal extends Component {
         super(props)
         this.state = {
             email: '',
-            imgBase64: ''
+            imgBase64: '',
+            medicine: ''
         }
     }
 
@@ -54,12 +55,19 @@ class RemedyModal extends Component {
         }
     }
 
+    handleChangeMedicine = (e) => {
+        this.setState({
+            medicine: e.target.value
+        })
+    }
+
     sendRemedyConfirm = () => {
         this.props.sendRemedyConfirm(this.state)
     }
 
     render() {
         let { isOpenRemedyModal, closeRemedyModal, dataModal, sendRemedyConfirm } = this.props
+        console.log(this.state.medicine)
 
         return (
             <div>
@@ -91,6 +99,10 @@ class RemedyModal extends Component {
                                 <input
                                     onChange={(e) => this.handleOnchangeImg(e)}
                                     className='form-control-file' type='file' />
+                            </div> 
+                            <div class="form-group col-12">
+                                <label for="exampleFormControlTextarea1">Thông tin thuốc:</label>
+                                <textarea onChange={(e)=>this.handleChangeMedicine(e)} class="form-control" id="exampleFormControlTextarea1" ></textarea>
                             </div>
                         </div>
                     </ModalBody>
